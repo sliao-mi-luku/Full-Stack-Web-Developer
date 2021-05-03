@@ -43,8 +43,16 @@ cur.execute("""
   );
 """)
 
-# insert a row
-cur.execute("INSERT INTO example_table (id, status) VALUES (1, true);")
+# insert a row (basic SQL command)
+cur.execute("INSERT INTO example_table (id, status) VALUES (1, True);")
+
+# insert a second row (using %s)
+cur.execute("INSERT INTO example_table (id, status) VALUES (%s, %s);", (2, True))
+
+# insert a third row (using %(<var_name>)s and a dict)
+cur.execute("INSERT INTO example_table (id, status) VALUES (%(id)s, %(status)s);", 
+              {'id': 3,
+               'status': False})
 
 # commit
 conn.commit()
