@@ -10,7 +10,13 @@ Log in with a particular user name:
 sudo -u <username> -i
 ```
 
-For example: `sudo -u postgres -i`
+For example, the command `sudo -u postgres -i` will let you log in as username = `postgres` (the default username).
+
+To log out, simply use `CTRL+d`, or `logout`:
+
+```terminal
+~ postgres$ logout
+```
 
 ## Create/Delete database
 
