@@ -45,10 +45,22 @@ def index(): # the route handler telling what to do next
   return "Hello World!"
 ```
 
-3. Go back to the terminal 
+3. Go back to the terminal to load the app
 
 ```
 $ FLASK_APP=flask-hello-app.py flask run
+```
+
+For live reload, use:
+
+```
+$ FLASK_APP=flask-hello-app.py FLASK_DEBUG=true flask run
+```
+
+Or, send the commands before `flask run`:
+
+```
+$ export FLASK_ENV=development
 ```
 
 4. The URL will be displayed on the terminal. Copy that URL and paste to a browser to see the homepage.
