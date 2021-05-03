@@ -53,6 +53,19 @@ cur.execute("INSERT INTO example_table (id, status) VALUES (%s, %s);", (2, True)
 cur.execute("INSERT INTO example_table (id, status) VALUES (%(id)s, %(status)s);", 
               {'id': 3,
                'status': False})
+               
+## Fetching results
+# the results we want to fetch
+cur.execute("SELECT * FROM example_table;")
+
+# 1. fetch whole results
+res = cur.fetchall()
+
+# 2. fetch the first result
+res = cur.fetchone()
+
+# 3. fetch the first n=5 result
+res = cur.fetchmany(5)
 
 # commit
 conn.commit()
