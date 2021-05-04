@@ -89,3 +89,31 @@ if __name__ == '__main__':
 ```
 $ python3 app.py
 ```
+
+## Flask-SQLAlchemy
+
+**Database connection URI parts**
+
+The `app.config['SQLALCHEMY_DATABASE_URI']` should be set to the string as the format below:
+
+`postgresql://username:password@hostaddress:port/databasename`
+
+notes: `password` is optional
+
+
+**codes**
+
+```python3
+from flask import Flask
+from flask-sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username@localhost:5432/example_db'
+db = SQLAlchemy(app)
+
+@app.route('/')
+def index():
+  return "Hello World!!"
+
+
+```
