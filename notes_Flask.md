@@ -111,6 +111,15 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username@localhost:5432/example_db'
 db = SQLAlchemy(app)
 
+# create a Person class
+class Person(db.Model):
+  # specify the table name 
+  __tablename__ = 'persons'
+  # create a column to match 'id' in the databse
+  id = db.Column(db.Integer, primary_key=True)
+  # create a column to match 'name' in the database
+  name = db.Column(db.String(), nullable=False)
+
 @app.route('/')
 def index():
   return "Hello World!!"
