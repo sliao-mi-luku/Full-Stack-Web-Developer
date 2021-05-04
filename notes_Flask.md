@@ -120,6 +120,9 @@ class Person(db.Model):
   # create a column to match 'name' in the database
   name = db.Column(db.String(), nullable=False)
 
+# create all tables if not exists
+db.create_all()
+
 @app.route('/')
 def index():
   return "Hello World!!"
