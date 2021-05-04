@@ -125,7 +125,62 @@ db.create_all()
 
 @app.route('/')
 def index():
-  return "Hello World!!"
+
+  # fetch the table
+  person = Person.query.first()
+  # say hello to the person
+  return "Hello " + person.name
 
 
 ```
+
+## Interactive Mode
+
+1. In the `app.py` file, add this line:
+
+```python3
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+```
+
+2. In the terminal type python3 to start the interactive mode
+
+```
+$ python3
+```
+
+3. In the interactive mode, import the app.py file
+
+```
+>>> import app
+```
+
+4. Import the table class (here called `Person`) and see the contents by:
+
+`<class>.query.all()`
+`<class>.query.first()`
+`<class>.query.filter(<class>.<attribute> = attribute_name).first()`
+
+```
+>>> from app import Person
+>>> Peson.query.all()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
