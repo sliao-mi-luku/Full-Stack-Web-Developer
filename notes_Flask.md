@@ -64,3 +64,28 @@ $ export FLASK_ENV=development
 ```
 
 4. The URL will be displayed on the terminal. Copy that URL and paste to a browser to see the homepage.
+
+## Hello World Flask App (2)
+
+```python3
+"""
+app.py
+"""
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+  return "Hello World!"
+  
+if __name__ == '__main__':
+  app.run(host = '0.0.0.0',
+          port = 5000,
+          debut = True)
+```
+
+```
+$ python3 app.py
+```
